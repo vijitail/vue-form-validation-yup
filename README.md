@@ -1,4 +1,4 @@
-> Form validation in VueJS using yup.
+Form validation in VueJS using yup.
 
 ## Build Setup
 

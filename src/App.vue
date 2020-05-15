@@ -55,7 +55,7 @@ export default {
   methods: {
     loginUser() {
       loginFormSchema
-        .validate(this.$data.values, { abortEarly: false })
+        .validate(this.values, { abortEarly: false })
         .then()
         .catch(err => {
           err.inner.forEach(error => {
@@ -65,12 +65,12 @@ export default {
     },
     validate(field) {
       loginFormSchema
-        .validateAt(field, this.$data.values)
+        .validateAt(field, this.values)
         .then(() => {
-          this.$data.errors[field] = "";
+          this.errors[field] = "";
         })
         .catch(err => {
-          this.errors = { ...this.errors, [err.path]: err.message };
+          this.errors[err.path] = err.message;
         });
     }
   }

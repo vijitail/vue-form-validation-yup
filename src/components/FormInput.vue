@@ -1,12 +1,12 @@
 <template>
-  <div :class="{ 'form-group': true, 'has-error': !!error }">
+  <div :class="[ 'form-group', !!error && 'has-error' ]">
     <label class="form-label" for="email">{{label}}</label>
     <input
       :id="name"
       :name="name"
       :type="type"
       :value="value"
-      @input="$emit('change', $event.target.value)"
+      @input="$emit('input', $event.target.value)"
       class="form-input"
       @blur="$emit('validate')"
       @keypress="$emit('validate')"
@@ -24,10 +24,6 @@ export default {
     name: { required: true },
     value: { required: true },
     error: { required: true }
-  },
-  model: {
-    prop: "value",
-    event: "change"
   }
 };
 </script>
